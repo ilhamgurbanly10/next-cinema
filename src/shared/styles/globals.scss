@@ -1,0 +1,15 @@
+@import 'effects.scss';
+@import 'slider.scss';
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+.fixed-header  {
+
+    .header-top {
+        display: none;
+    }
+    
+}
