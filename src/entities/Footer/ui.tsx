@@ -1,6 +1,5 @@
 import React from "react";
 import { Props, Path, Link as LinkType } from "./type";
-import useModel from "./model";
 import Container from "@/shared/ui/Container";
 import Section from "@/shared/ui/Section";
 import TextButton from "@/shared/ui/Buttons/TextButton";
@@ -8,10 +7,9 @@ import Image from "@/shared/ui/Image";
 import Link from "next/link";
 import { paths } from "./data";
 import Title from "@/shared/ui/Title";
+import Images from "@/shared/images";
 
 export const UI: React.FC<Props> = ({}) => {
-  const { greeting } = useModel();
-
   return (
     <footer className="footer w-full bg-primary-black mt-14">
       <Container>
@@ -23,9 +21,9 @@ export const UI: React.FC<Props> = ({}) => {
                   <Image
                     className="brand"
                     width={171}
-                    height={50}
+                    height={40}
                     alt={"brand"}
-                    src="https://themegenix.net/html/zaira/assets/img/logo/w_logo.png"
+                    src={Images.logoV2}
                   />
                 </Link>
               </div>

@@ -20,6 +20,7 @@ import {
   YoutubeFilled,
 } from "@/shared/icons";
 import MobileNavbar from "./MobileNavbar";
+import Images from "@/shared/images";
 
 export const UI: React.FC<Props> = ({}) => {
   const { showOffcanvas, setShowOffcanvas, showMenu, setShowMenu } = useModel();
@@ -47,9 +48,9 @@ export const UI: React.FC<Props> = ({}) => {
               <Image
                 className="brand"
                 width={171}
-                height={50}
+                height={40}
                 alt={"brand"}
-                src="https://themegenix.net/html/zaira/assets/img/logo/logo.png"
+                src={Images.logo}
               />
             </Link>
           </div>
@@ -63,9 +64,9 @@ export const UI: React.FC<Props> = ({}) => {
               <Image
                 className="brand"
                 width={171}
-                height={50}
+                height={40}
                 alt={"brand"}
-                src="https://themegenix.net/html/zaira/assets/img/logo/logo.png"
+                src={Images.logo}
               />
             </Link>
           </div>
@@ -89,9 +90,9 @@ export const UI: React.FC<Props> = ({}) => {
               <Image
                 className="brand"
                 width={171}
-                height={50}
+                height={40}
                 alt={"brand"}
-                src="https://themegenix.net/html/zaira/assets/img/logo/logo.png"
+                src={Images.logo}
               />
             </Link>
           </div>

@@ -8,6 +8,7 @@ import useRecoil from "@/shared/state/useRecoil";
 import Loader from "@/shared/ui/Loader";
 import Error from "@/shared/ui/Error";
 import TextButton from "@/shared/ui/Buttons/TextButton";
+import Images from "@/shared/images";
 export const UI: React.FC<Props> = ({ className, setShow }) => {
   const { t } = useTranslation("common");
   const { info } = useRecoil();
@@ -35,9 +36,9 @@ export const UI: React.FC<Props> = ({ className, setShow }) => {
           <Image
             className="brand"
             width={171}
-            height={50}
+            height={40}
             alt={"brand"}
-            src="https://themegenix.net/html/zaira/assets/img/logo/logo.png"
+            src={Images.logo}
           />
         </Link>
 
