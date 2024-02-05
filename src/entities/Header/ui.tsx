@@ -2,13 +2,10 @@ import React from "react";
 import { Props } from "./type";
 import useModel from "./model";
 import Top from "./Top";
-import Offcanvas from "@/shared/ui/Offcanvas";
 import Container from "@/shared/ui/Container";
-import OffcanvasContent from "./OffcanvasContent";
 import Image from "@/shared/ui/Image";
 import Link from "next/link";
 import Navbar from "./Navbar";
-import Search from "./Search";
 import HamburgerMenu from "@/shared/ui/HamburgerMenu";
 import IconicButton from "@/shared/ui/Buttons/IconicButton";
 import {
@@ -23,7 +20,7 @@ import MobileNavbar from "./MobileNavbar";
 import Images from "@/shared/images";
 
 export const UI: React.FC<Props> = ({}) => {
-  const { showOffcanvas, setShowOffcanvas, showMenu, setShowMenu } = useModel();
+  const { showMenu, setShowMenu } = useModel();
 
   return (
     <header className="header">
@@ -32,19 +29,11 @@ export const UI: React.FC<Props> = ({}) => {
       <div className="border-b">
         <Container className="hidden lg:flex items-center justify-between bg-white">
           <div className="flex items-center">
-            <button
-              onClick={() => {
-                setShowOffcanvas(true);
-              }}
-              className="text-4xl bg-white px-6 py-7 border-r"
-            >
-              <Bars color="#F4796C" />
-            </button>
-            <Navbar className="ml-8" />
+            {/* <Navbar className="ml-8" /> */}
           </div>
 
           <div>
-            <Link href="/">
+            {/* <Link href="/">
               <Image
                 className="brand"
                 width={171}
@@ -52,10 +41,8 @@ export const UI: React.FC<Props> = ({}) => {
                 alt={"brand"}
                 src={Images.logo}
               />
-            </Link>
+            </Link> */}
           </div>
-
-          <Search className="mr-8" />
         </Container>
 
         <Container className="flex lg:hidden items-center justify-between p-4 bg-white">
@@ -83,7 +70,7 @@ export const UI: React.FC<Props> = ({}) => {
         </Container>
       </div>
 
-      <HamburgerMenu show={showMenu} setShow={setShowMenu}>
+      {/* <HamburgerMenu show={showMenu} setShow={setShowMenu}>
         <div>
           <div className="mt-8">
             <Link href="/">
@@ -96,8 +83,6 @@ export const UI: React.FC<Props> = ({}) => {
               />
             </Link>
           </div>
-
-          <Search className="mt-4" rounded={false} />
 
           <MobileNavbar className="mt-6" />
 
@@ -125,15 +110,7 @@ export const UI: React.FC<Props> = ({}) => {
             <IconicButton href="/" isLink={true} icon={<YoutubeFilled />} />
           </div>
         </div>
-      </HamburgerMenu>
-
-      <Offcanvas
-        show={showOffcanvas}
-        setShow={setShowOffcanvas}
-        className="hidden lg:block"
-      >
-        <OffcanvasContent setShow={setShowOffcanvas} />
-      </Offcanvas>
+      </HamburgerMenu> */}
     </header>
   );
 };
