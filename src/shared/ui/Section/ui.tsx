@@ -3,7 +3,7 @@ import { Props } from "./type";
 
 export const UI: React.FC<Props> = ({ className, children }) => {
   return (
-    <section className={`section px-4 lg:px-20 ${className ? className : ""}`}>
+    <section className={`section px-4 lg:px-40 ${className ? className : ""}`}>
       {children}
     </section>
   );
