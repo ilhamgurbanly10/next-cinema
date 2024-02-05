@@ -15,4 +15,5 @@ export { UI as Search } from './Search';
 export { UI as YoutubeFilled } from './YoutubeFilled';
 export { UI as Right } from './Right';
 export { UI as User } from './User';
+export { UI as UserAdd } from './UserAdd';
 export { UI as Calendar } from './Calendar';
