@@ -1,13 +1,13 @@
-import {Hook, InfoAtom} from './type'
+import {Hook, HeroAtom} from './type'
 import { useRecoilState } from 'recoil';
-import { infoState } from './atoms';
+import { heroState } from './atoms';
 ;
 
 const useRecoil = (): Hook => {
 
   // atoms
-  const [info, setInfo] = useRecoilState<InfoAtom>(infoState);
-  return { info };
+  const [hero, setHero] = useRecoilState<HeroAtom>(heroState);
+  return { hero };
 
 };
 

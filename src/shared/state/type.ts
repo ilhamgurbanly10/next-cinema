@@ -1,14 +1,18 @@
 export interface Hook {
-    info: InfoAtom;
+    hero: HeroAtom;
 }
 
-export interface Info {
+export interface Hero {
+    id: number;
     title: string;
-    images: string[];
+    subtitle: string;
+    description: string;
+    slug: string;
+    img: string;
 }
 
-export interface InfoAtom {
-    data: Info | null;
+export interface HeroAtom {
+    data: Hero[] | null;
     error: boolean;
     loading: boolean;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import Head from "@/shared/ui/Head";
 import { useTranslation } from "next-i18next";
 import { Props } from "./type";
-
+import Hero from "@/entities/sections/Hero";
 export const UI: React.FC<Props> = ({}) => {
   const { t } = useTranslation("common");
 
@@ -13,6 +13,7 @@ export const UI: React.FC<Props> = ({}) => {
         metaTitle={t("metaTitle")}
         metaDescription={t("metaDescription")}
       />
+      <Hero />
     </>
   );
 };

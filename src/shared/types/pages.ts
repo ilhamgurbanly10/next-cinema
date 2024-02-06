@@ -1,5 +1,5 @@
-import { InfoAtom } from "@/shared/state/type";
+import { HeroAtom } from "@/shared/state/type";
 
 export interface Home {
-    info: InfoAtom;
+    hero: HeroAtom;
 }

@@ -12,7 +12,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['themegenix.net'], 
+    domains: ['kodeforest.net'], 
   },
 }
 

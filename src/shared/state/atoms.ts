@@ -1,13 +1,13 @@
 import { atom } from 'recoil';
-import {InfoAtom} from './type';
+import {HeroAtom} from './type';
 
 export const loadingState = atom<boolean>({
   key: 'loadingState',
   default: false
 });
 
-export const infoState = atom<InfoAtom>({
-  key: 'infoState',
+export const heroState = atom<HeroAtom>({
+  key: 'heroState',
   default: {
     error: false,
     data: null,

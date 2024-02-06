@@ -4,13 +4,13 @@ import type { GetStaticProps, NextPage } from "next";
 import { Home } from "@/shared/types/pages";
 import { RecoilRoot } from "recoil";
 import Layout from "@/entities/Layout";
-import { infoState } from "@/shared/state/atoms";
-import { getInfo } from "@/shared/utils/get/general";
-import { InfoAtom } from "@/shared/state/type";
+import { heroState } from "@/shared/state/atoms";
+import { getHero } from "@/shared/utils/get/general";
+import { HeroAtom } from "@/shared/state/type";
 
-const Index: NextPage<Home> = ({ info }) => {
+const Index: NextPage<Home> = ({ hero }) => {
   const initializeState = ({ set }): void => {
-    set(infoState, info);
+    set(heroState, hero);
   };
 
   return (
@@ -23,13 +23,13 @@ const Index: NextPage<Home> = ({ info }) => {
 };
 
 export const getStaticProps: GetStaticProps<Home> = async ({ locale }) => {
-  let info: InfoAtom = { data: null, error: false, loading: true };
-  info = await getInfo();
+  let hero: HeroAtom = { data: null, error: false, loading: true };
+  hero = await getHero();
 
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ["common"])),
-      info,
+      hero,
     },
     revalidate: 1000000,
   };
