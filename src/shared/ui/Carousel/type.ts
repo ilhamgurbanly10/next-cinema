@@ -24,4 +24,6 @@ export interface ModelReturnProps {
     setIsHover: React.Dispatch<React.SetStateAction<boolean>>;
     next: () => void;
     prev: () => void;
+    nextDisabled: boolean;
+    prevDisabled: boolean;
 }

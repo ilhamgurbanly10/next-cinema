@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useMemo} from 'react';
 import { ModelReturnProps } from './type';
 
 const useModel = (length: number, infinite: boolean, autoplay:boolean, autoplaySpeed: number, pauseOnHover: boolean): ModelReturnProps  => {
@@ -16,6 +16,14 @@ const useModel = (length: number, infinite: boolean, autoplay:boolean, autoplayS
     else if (infinite) setKey(length);
   }
 
+  const nextDisabled = useMemo<boolean>(() => {
+    return key === length && !infinite ? true : false;
+  }, [key])
+
+  const prevDisabled = useMemo<boolean>(() => {
+    return key === 0 && !infinite ? true : false;
+  }, [key])
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (autoplay) !pauseOnHover ? next() : !isHover ? next() : null;
@@ -27,7 +35,9 @@ const useModel = (length: number, infinite: boolean, autoplay:boolean, autoplayS
     key, 
     next,
     prev,
-    setIsHover
+    setIsHover,
+    nextDisabled,
+    prevDisabled
   };
 
 };

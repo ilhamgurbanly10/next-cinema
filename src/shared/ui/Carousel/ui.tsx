@@ -2,7 +2,7 @@ import React from "react";
 import { Props, Item } from "./type";
 import useModel from "./model";
 import { useTranslation } from "next-i18next";
-
+import Button from "../Buttons/Button";
 export const UI: React.FC<Props> = ({
   className,
   data,
@@ -14,7 +14,7 @@ export const UI: React.FC<Props> = ({
   autoplaySpeed = 5000,
   pauseOnHover = true,
 }) => {
-  const { key, next, prev, setIsHover } = useModel(
+  const { key, next, prev, setIsHover, nextDisabled, prevDisabled } = useModel(
     data?.length - 1,
     infinite,
     autoplay,
@@ -51,13 +51,21 @@ export const UI: React.FC<Props> = ({
                 i === key ? "translate-y-0" : "-translate-y-full"
               }`}
             >
-              <h6 className="font-bold lg:w-10/12 mx-auto text-lg lg:text-3xl">
+              <h6 className="font-bold w-10/12 mx-auto text-lg lg:text-3xl">
                 {item.subtitle}
               </h6>
-              <h3 className="font-bold lg:w-10/12 mx-auto text-2xl lg:text-5xl mt-4">
+              <h3 className="font-bold w-10/12 mx-auto text-2xl lg:text-5xl mt-4">
                 {item.title}
               </h3>
-              <p className="lg:w-10/12 mx-auto mt-4">{item.description}</p>
+              <p className="w-10/12 mx-auto mt-4">{item.description}</p>
+              <div className="mt-10">
+                <Button
+                  className="mt-4"
+                  isLink={true}
+                  href="/"
+                  text={t("more_info")}
+                />
+              </div>
             </div>
             {overlay && (
               <div className="absolute inset-0 w-full h-full bg-overlay"></div>
@@ -69,9 +77,13 @@ export const UI: React.FC<Props> = ({
             <button
               type="button"
               onClick={() => {
-                next();
+                if (!nextDisabled) next();
               }}
-              className="transition-all absolute right-0 w-10 h-10 lg:w-16 lg:h-16 text-white lg:text-3xl bg-primary-blue hover:bg-primary-orange inline-flex justify-center items-center "
+              className={`transition-all absolute right-0 w-10 h-10 lg:w-16 lg:h-16 text-white lg:text-3xl inline-flex justify-center items-center ${
+                nextDisabled
+                  ? "bg-primary-grey cursor-not-allowed"
+                  : "bg-primary-blue hover:bg-primary-orange cursor-pointer"
+              }`}
             >
               <svg
                 viewBox="64 64 896 896"
@@ -89,9 +101,13 @@ export const UI: React.FC<Props> = ({
             <button
               type="button"
               onClick={() => {
-                prev();
+                if (!prevDisabled) prev();
               }}
-              className="transition-all absolute left-0 w-10 h-10 lg:w-16 lg:h-16 text-white lg:text-3xl bg-primary-blue hover:bg-primary-orange inline-flex justify-center items-center "
+              className={`transition-all absolute left-0 w-10 h-10 lg:w-16 lg:h-16 text-white lg:text-3xl inline-flex justify-center items-center ${
+                prevDisabled
+                  ? "bg-primary-grey cursor-not-allowed"
+                  : "bg-primary-blue hover:bg-primary-orange cursor-pointer"
+              }`}
             >
               <svg
                 viewBox="64 64 896 896"
@@ -111,5 +127,3 @@ export const UI: React.FC<Props> = ({
     </div>
   );
 };
-
-// arrow disabled, animations, button

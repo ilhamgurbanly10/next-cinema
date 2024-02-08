@@ -14,7 +14,12 @@ export const UI: React.FC<Props> = ({ className }) => {
     <Container className="mt-14">
       <div>
         {!data.loading && !data.error && (
-          <Carousel autoplaySpeed={2000} pauseOnHover={true} data={data.data} />
+          <Carousel
+            autoplaySpeed={2000}
+            infinite={true}
+            pauseOnHover={true}
+            data={data.data}
+          />
         )}
       </div>
       <div className="w-full py-14 flex flex-col items-center">
