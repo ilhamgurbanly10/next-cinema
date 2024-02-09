@@ -4,13 +4,14 @@ import type { GetStaticProps, NextPage } from "next";
 import { Home } from "@/shared/types/pages";
 import { RecoilRoot } from "recoil";
 import Layout from "@/entities/Layout";
-import { heroState } from "@/shared/state/atoms";
-import { getHero } from "@/shared/utils/get/general";
-import { HeroAtom } from "@/shared/state/type";
+import { heroState, ourMasterChefsState } from "@/shared/state/atoms";
+import { getHero, getOurMaterChefs } from "@/shared/utils/get/general";
+import { HeroAtom, OurMasterChefsAtom } from "@/shared/state/type";
 
-const Index: NextPage<Home> = ({ hero }) => {
+const Index: NextPage<Home> = ({ hero, ourMasterChefs }) => {
   const initializeState = ({ set }): void => {
     set(heroState, hero);
+    set(ourMasterChefsState, ourMasterChefs);
   };
 
   return (
@@ -26,10 +27,18 @@ export const getStaticProps: GetStaticProps<Home> = async ({ locale }) => {
   let hero: HeroAtom = { data: null, error: false, loading: true };
   hero = await getHero();
 
+  let ourMasterChefs: OurMasterChefsAtom = {
+    data: null,
+    error: false,
+    loading: true,
+  };
+  ourMasterChefs = await getOurMaterChefs();
+
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ["common"])),
       hero,
+      ourMasterChefs,
     },
     revalidate: 1000000,
   };

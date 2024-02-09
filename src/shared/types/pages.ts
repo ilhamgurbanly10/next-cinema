@@ -1,5 +1,6 @@
-import { HeroAtom } from "@/shared/state/type";
+import { HeroAtom, OurMasterChefsAtom } from "@/shared/state/type";
 
 export interface Home {
     hero: HeroAtom;
+    ourMasterChefs: OurMasterChefsAtom;
 }

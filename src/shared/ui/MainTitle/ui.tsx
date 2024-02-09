@@ -4,24 +4,23 @@ import { useTranslation } from "next-i18next";
 export const UI: React.FC<Props> = ({
   className,
   text,
-  centerUnderline,
-  centerUnderlineColorClassName,
+  underline = true,
+  underlineColorClassName = "bg-primary-orange",
 }) => {
   const { t } = useTranslation("common");
 
   return (
     <h2
-      className={`title text-primary-blue font-medium text-lg lg:text-2xl ${
-        centerUnderline ? "inline-flex flex-col items-center" : ""
-      } ${className ? className : ""}`}
+      className={`title mb-5 text-center text-primary-blue font-medium text-lg lg:text-3xl ${
+        className ? className : ""
+      }`}
     >
       <span className="block">{t(text)}</span>
-      {centerUnderline && (
-        <div
-          className={`clip-path-center flex relative flex-nowrap h-1 w-10 mt-3 bg-primary-orange ${
-            centerUnderlineColorClassName ? centerUnderlineColorClassName : ""
-          }`}
-        />
+      {underline && (
+        <div className="flex flex-col items-center mt-4">
+          <div className={`h-px w-24 ${underlineColorClassName}`}></div>
+          <div className={`h-px w-14 mt-1.5 ${underlineColorClassName}`}></div>
+        </div>
       )}
     </h2>
   );

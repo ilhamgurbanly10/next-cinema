@@ -1,4 +1,4 @@
-import { HeroAtom } from '@/shared/state/type';
+import { HeroAtom, OurMasterChefsAtom } from '@/shared/state/type';
 import api from '../api';
 
 export const getHero = async (): Promise<HeroAtom> => {
@@ -33,6 +33,76 @@ export const getHero = async (): Promise<HeroAtom> => {
         img: 'https://kodeforest.net/wp-demo/foodcourt/wp-content/uploads/2016/06/banner-1.jpg',
         description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
         slug: 'res'
+      }
+    ]
+
+    return data;
+  } catch (error) {
+    console.error('Error fetching:', error);
+    return {data: null, error: true, loading: false};
+  }
+};
+
+export const getOurMaterChefs = async (): Promise<OurMasterChefsAtom> => {
+
+  try {
+
+    const response = await api.get('/todos');
+
+    let data: OurMasterChefsAtom = {data: null, error: false, loading: false};
+
+    data.data = [
+      {
+        id: 1,
+        name: 'Shannon Bennett',
+        slug: 'shannom-bennett',
+        position: 'CEO',
+        img: 'https://kodeforest.net/wp-demo/foodcourt/wp-content/uploads/2016/06/master-chef-3.jpg',
+        socials: {
+          facebook: '/',
+          twitter: '/',
+          youtube: '/',
+          linkedin: '/',
+        }
+      },
+      {
+        id: 2,
+        name: 'Jonathan Doe',
+        slug: 'jonathan-doe',
+        position: 'Chef',
+        img: 'https://kodeforest.net/wp-demo/foodcourt/wp-content/uploads/2016/06/master-chef-1.jpg',
+        socials: {
+          facebook: '/',
+          twitter: '/',
+          youtube: '/',
+          linkedin: '/',
+        }
+      },
+      {
+        id: 3,
+        name: 'Georgia Barnes',
+        slug: 'georgia-barnes',
+        position: 'Chef',
+        img: 'https://kodeforest.net/wp-demo/foodcourt/wp-content/uploads/2016/06/master-chef-2.jpg',
+        socials: {
+          facebook: '/',
+          twitter: '/',
+          youtube: '/',
+          linkedin: '/',
+        }
+      },
+      {
+        id: 4,
+        name: 'Billie McKay',
+        slug: 'billie-mckay',
+        position: 'Head Chef',
+        img: 'https://kodeforest.net/wp-demo/foodcourt/wp-content/uploads/2016/06/master-chef-4.jpg',
+        socials: {
+          facebook: '/',
+          twitter: '/',
+          youtube: '/',
+          linkedin: '/',
+        }
       }
     ]
 
