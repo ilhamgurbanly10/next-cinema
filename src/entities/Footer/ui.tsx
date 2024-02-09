@@ -6,7 +6,7 @@ import TextButton from "@/shared/ui/Buttons/TextButton";
 import Image from "@/shared/ui/Image";
 import Link from "next/link";
 import { paths } from "./data";
-import Title from "@/shared/ui/Title";
+import Title from "@/shared/ui/Title1";
 import Images from "@/shared/images";
 
 export const UI: React.FC<Props> = ({}) => {

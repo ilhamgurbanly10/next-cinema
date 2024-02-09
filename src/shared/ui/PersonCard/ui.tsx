@@ -2,6 +2,7 @@ import React from "react";
 import { Props } from "./type";
 import Link from "next/link";
 import Image from "@/shared/ui/Image";
+import Title1 from "@/shared/ui/Title1";
 import {
   TwitterOutlined,
   YoutubeFilled,
@@ -21,7 +22,7 @@ export const UI: React.FC<Props> = ({
     <div className={`person-card ${className ? className : ""}`}>
       <Link href="/">
         <Image
-          className="brand"
+          className="person-card-img cursor-pointer"
           width={258}
           height={324}
           alt={label}
@@ -30,9 +31,7 @@ export const UI: React.FC<Props> = ({
       </Link>
 
       <Link href={href}>
-        <p className="mt-3 text-center lg:text-start transition-all text-lg text-primary-blue hover:text-primary-orange cursor-pointer font-bold">
-          {label}
-        </p>
+        <Title1 text={label} />
       </Link>
 
       <i className="mt-2 text-center lg:text-start block">{position}</i>
