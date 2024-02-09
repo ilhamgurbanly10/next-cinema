@@ -11,7 +11,7 @@ import {
 } from "@/shared/icons";
 
 export const UI: React.FC<Props> = ({
-  className,
+  className = "",
   src,
   label,
   href,
@@ -19,7 +19,7 @@ export const UI: React.FC<Props> = ({
   socials,
 }) => {
   return (
-    <div className={`person-card ${className ? className : ""}`}>
+    <div className={`person-card ${className}`}>
       <Link href="/">
         <Image
           className="person-card-img cursor-pointer"
