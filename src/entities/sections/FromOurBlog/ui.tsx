@@ -22,7 +22,7 @@ export const UI: React.FC<Props> = ({ className }) => {
         <MainTitle text="from_our_blog" />
         <div>
           {!data.loading && !data.error && (
-            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between">
+            <div className="flex flex-col lg:flex-row flex-wrap items-center lg:items-start justify-between">
               {data?.data?.map((item: FromOurBlogBlog, i: number) => (
                 <BlogCard
                   key={i}
@@ -33,7 +33,7 @@ export const UI: React.FC<Props> = ({ className }) => {
                   date={item.date}
                   user={item.user}
                   description={item.description}
-                  className="mt-4 lg:mt-0 first:mt-0"
+                  className="mt-4 lg:mt-0 first:mt-0 lg:mb-5"
                 />
               ))}
             </div>

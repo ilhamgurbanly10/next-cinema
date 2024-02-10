@@ -26,6 +26,9 @@ module.exports = {
           '100': '#dbe4ef'
         }
       },
+      width: {
+        '49%': '49%'
+      },
       spacing: {
         'px.5': '.5px',
         '100%': '100%',
