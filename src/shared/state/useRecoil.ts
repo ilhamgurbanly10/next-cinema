@@ -1,6 +1,6 @@
-import {Hook, HeroAtom, OurMasterChefsAtom} from './type'
+import {Hook, HeroAtom, OurMasterChefsAtom, FromOurBlogAtom} from './type'
 import { useRecoilState } from 'recoil';
-import { heroState, ourMasterChefsState } from './atoms';
+import { heroState, ourMasterChefsState, fromOurBlogState } from './atoms';
 ;
 
 const useRecoil = (): Hook => {
@@ -8,7 +8,8 @@ const useRecoil = (): Hook => {
   // atoms
   const [hero, setHero] = useRecoilState<HeroAtom>(heroState);
   const [ourMasterChefs, setourMasterChefs] = useRecoilState<OurMasterChefsAtom>(ourMasterChefsState);
-  return { hero, ourMasterChefs};
+  const [fromOurBlog, setFromOurBlog] = useRecoilState<FromOurBlogAtom>(fromOurBlogState);
+  return { hero, ourMasterChefs, fromOurBlog};
 
 };
 

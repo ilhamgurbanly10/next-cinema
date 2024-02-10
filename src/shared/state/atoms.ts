@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import {HeroAtom, OurMasterChefsAtom} from './type';
+import {HeroAtom, OurMasterChefsAtom, FromOurBlogAtom} from './type';
 
 export const loadingState = atom<boolean>({
   key: 'loadingState',
@@ -17,6 +17,15 @@ export const heroState = atom<HeroAtom>({
 
 export const ourMasterChefsState = atom<OurMasterChefsAtom>({
   key: 'ourMasterChefsState',
+  default: {
+    error: false,
+    data: null,
+    loading: false
+  },
+});
+
+export const fromOurBlogState = atom<FromOurBlogAtom>({
+  key: 'fromOurBlogState',
   default: {
     error: false,
     data: null,

@@ -4,14 +4,27 @@ import type { GetStaticProps, NextPage } from "next";
 import { Home } from "@/shared/types/pages";
 import { RecoilRoot } from "recoil";
 import Layout from "@/entities/Layout";
-import { heroState, ourMasterChefsState } from "@/shared/state/atoms";
-import { getHero, getOurMaterChefs } from "@/shared/utils/get/general";
-import { HeroAtom, OurMasterChefsAtom } from "@/shared/state/type";
+import {
+  heroState,
+  ourMasterChefsState,
+  fromOurBlogState,
+} from "@/shared/state/atoms";
+import {
+  getHero,
+  getOurMaterChefs,
+  getFromOurBlog,
+} from "@/shared/utils/get/general";
+import {
+  HeroAtom,
+  OurMasterChefsAtom,
+  FromOurBlogAtom,
+} from "@/shared/state/type";
 
-const Index: NextPage<Home> = ({ hero, ourMasterChefs }) => {
+const Index: NextPage<Home> = ({ hero, ourMasterChefs, fromOurBlog }) => {
   const initializeState = ({ set }): void => {
     set(heroState, hero);
     set(ourMasterChefsState, ourMasterChefs);
+    set(fromOurBlogState, fromOurBlog);
   };
 
   return (
@@ -34,11 +47,19 @@ export const getStaticProps: GetStaticProps<Home> = async ({ locale }) => {
   };
   ourMasterChefs = await getOurMaterChefs();
 
+  let fromOurBlog: FromOurBlogAtom = {
+    data: null,
+    error: false,
+    loading: true,
+  };
+  fromOurBlog = await getFromOurBlog();
+
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ["common"])),
       hero,
       ourMasterChefs,
+      fromOurBlog,
     },
     revalidate: 1000000,
   };

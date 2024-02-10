@@ -3,12 +3,6 @@ import { Props } from "./type";
 import Link from "next/link";
 import Image from "@/shared/ui/Image";
 import Title1 from "@/shared/ui/Title1";
-import {
-  TwitterOutlined,
-  YoutubeFilled,
-  InstagramOutlined,
-  FacebookFilled,
-} from "@/shared/icons";
 
 export const UI: React.FC<Props> = ({
   className = "",

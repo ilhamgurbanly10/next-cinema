@@ -1,6 +1,7 @@
 export interface Hook {
     hero: HeroAtom;
     ourMasterChefs: OurMasterChefsAtom;
+    fromOurBlog: FromOurBlogAtom;
 }
 
 export interface Hero {
@@ -39,4 +40,22 @@ export interface OurMasterChefsAtom {
     error: boolean;
     loading: boolean;
 }
+
+export interface FromOurBlogBlog {
+    id: number;
+    name: string;
+    slug: string;
+    date: string;
+    img: string;
+    description: string;
+    user: string;
+}
+
+export interface FromOurBlogAtom {
+    data: FromOurBlogBlog[] | null;
+    error: boolean;
+    loading: boolean;
+}
+
+
 

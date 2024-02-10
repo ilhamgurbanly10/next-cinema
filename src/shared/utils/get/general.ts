@@ -1,4 +1,4 @@
-import { HeroAtom, OurMasterChefsAtom } from '@/shared/state/type';
+import { HeroAtom, OurMasterChefsAtom, FromOurBlogAtom } from '@/shared/state/type';
 import api from '../api';
 
 export const getHero = async (): Promise<HeroAtom> => {
@@ -103,6 +103,60 @@ export const getOurMaterChefs = async (): Promise<OurMasterChefsAtom> => {
           youtube: '/',
           linkedin: '/',
         }
+      }
+    ]
+
+    return data;
+  } catch (error) {
+    console.error('Error fetching:', error);
+    return {data: null, error: true, loading: false};
+  }
+};
+
+export const getFromOurBlog = async (): Promise<FromOurBlogAtom> => {
+
+  try {
+
+    const response = await api.get('/todos');
+
+    let data: FromOurBlogAtom = {data: null, error: false, loading: false};
+
+    data.data = [
+      {
+        id: 1,
+        name: 'PARTY LUNCH',
+        slug: 'party-lunch',
+        date: '28 Jun',
+        img: 'https://kodeforest.net/wp-demo/foodcourt/wp-content/uploads/2016/06/blog-260x325.jpg',
+        user: 'Admin',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+      },
+      {
+        id: 2,
+        name: 'FRIENDS LUNCH',
+        slug: 'friends-lunch',
+        date: '28 Jun',
+        img: 'https://kodeforest.net/wp-demo/foodcourt/wp-content/uploads/2016/06/blog4-260x325.jpg',
+        user: 'Admin',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+      },
+      {
+        id: 3,
+        name: 'COUPLES DINNER',
+        slug: 'couples-dinner',
+        date: '28 Jun',
+        img: 'https://kodeforest.net/wp-demo/foodcourt/wp-content/uploads/2016/06/blog5-260x325.jpg',
+        user: 'Admin',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+      },
+      {
+        id: 4,
+        name: 'FAMILY DINNER',
+        slug: 'family-dinner',
+        date: '28 Jun',
+        img: 'https://kodeforest.net/wp-demo/foodcourt/wp-content/uploads/2016/06/family-dinner-260x325.jpg',
+        user: 'Admin',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
       }
     ]
 
