@@ -25,7 +25,7 @@ export const UI: React.FC<Props> = ({
       </Link>
 
       <Link href={href}>
-        <Title1 text={label} />
+        <Title1 text={label} className="mt-3" />
       </Link>
 
       <i className="mt-2 text-center lg:text-start block">{position}</i>

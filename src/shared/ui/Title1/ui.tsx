@@ -7,7 +7,7 @@ export const UI: React.FC<Props> = ({
 }) => {
   return (
     <h2
-      className={`title-1 mt-3 text-center lg:text-start transition-all text-lg ${colorClassName} cursor-pointer font-bold ${className}}`}
+      className={`title-1 text-center lg:text-start transition-all text-lg ${colorClassName} cursor-pointer font-bold ${className}}`}
     >
       {text}
     </h2>
