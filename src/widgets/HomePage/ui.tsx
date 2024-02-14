@@ -5,6 +5,7 @@ import { Props } from "./type";
 import Hero from "@/entities/sections/Hero";
 import OurMasterChefs from "@/entities/sections/OurMasterChefs";
 import FromOurBlog from "@/entities/sections/FromOurBlog";
+import Results from "@/entities/sections/Results";
 export const UI: React.FC<Props> = ({}) => {
   const { t } = useTranslation("common");
 
@@ -17,6 +18,7 @@ export const UI: React.FC<Props> = ({}) => {
       />
       <Hero />
       <OurMasterChefs />
+      <Results />
       <FromOurBlog />
     </>
   );

@@ -12,10 +12,6 @@ import MainTitle from "@/shared/ui/MainTitle";
 export const UI: React.FC<Props> = ({ className }) => {
   const { ourMasterChefs: data } = useRecoil();
 
-  React.useEffect(() => {
-    console.log(data, "data");
-  }, []);
-
   return (
     <Container className="mt-0">
       <Section>

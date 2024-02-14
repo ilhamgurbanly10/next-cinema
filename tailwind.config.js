@@ -18,6 +18,7 @@ module.exports = {
         'primary-black': '#0C1622',
         'overlay': 'rgba(0,0,0,.6)',
         'overlay-light': 'rgba(0,0,0,.4)',
+        'overlay-dark': 'rgba(0,0,0,.7)',
         'error': '#FF0000',
         'loading': '#183354',
         'success': '#008000',

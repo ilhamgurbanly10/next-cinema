@@ -12,12 +12,8 @@ import MainTitle from "@/shared/ui/MainTitle";
 export const UI: React.FC<Props> = ({ className }) => {
   const { fromOurBlog: data } = useRecoil();
 
-  React.useEffect(() => {
-    console.log(data, "data");
-  }, []);
-
   return (
-    <Container className="mt-0">
+    <Container className="mt-14">
       <Section>
         <MainTitle text="from_our_blog" />
         <div>
