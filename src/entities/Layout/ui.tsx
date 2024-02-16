@@ -13,8 +13,11 @@ export const UI: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Header />
+      <FixedHeader>
+        <Header />
+      </FixedHeader>
       <main className="main">{children}</main>
-      {/* <Footer /> */}
+      <Footer />
       <BackToTopBtn />
       <MainLoader show={loading.state} />
     </>

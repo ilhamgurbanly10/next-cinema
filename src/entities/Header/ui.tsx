@@ -6,7 +6,9 @@ import Container from "@/shared/ui/Container";
 import Image from "@/shared/ui/Image";
 import Link from "next/link";
 import Navbar from "./Navbar";
+import Search from "./Search";
 import HamburgerMenu from "@/shared/ui/HamburgerMenu";
+import Section from "@/shared/ui/Section";
 import IconicButton from "@/shared/ui/Buttons/IconicButton";
 import {
   Bars,
@@ -27,22 +29,26 @@ export const UI: React.FC<Props> = ({}) => {
       <Top />
 
       <div className="border-b">
-        <Container className="hidden lg:flex items-center justify-between bg-white">
-          <div className="flex items-center">
-            {/* <Navbar className="ml-8" /> */}
-          </div>
+        <Container>
+          <Section className="hidden lg:flex items-center py-6 justify-between bg-white">
+            <div className="flex items-center">
+              <Navbar className="" />
+            </div>
 
-          <div>
-            {/* <Link href="/">
-              <Image
-                className="brand"
-                width={171}
-                height={40}
-                alt={"brand"}
-                src={Images.logo}
-              />
-            </Link> */}
-          </div>
+            <div>
+              <Link href="/">
+                <Image
+                  className="brand"
+                  width={171}
+                  height={40}
+                  alt={"brand"}
+                  src={Images.logo}
+                />
+              </Link>
+            </div>
+
+            <Search />
+          </Section>
         </Container>
 
         <Container className="flex lg:hidden items-center justify-between p-4 bg-white">
@@ -70,7 +76,7 @@ export const UI: React.FC<Props> = ({}) => {
         </Container>
       </div>
 
-      {/* <HamburgerMenu show={showMenu} setShow={setShowMenu}>
+      <HamburgerMenu show={showMenu} setShow={setShowMenu}>
         <div>
           <div className="mt-8">
             <Link href="/">
@@ -84,33 +90,44 @@ export const UI: React.FC<Props> = ({}) => {
             </Link>
           </div>
 
+          <Search className="mt-4" rounded={false} />
+
           <MobileNavbar className="mt-6" />
 
           <div className="flex justify-between mt-6">
             <IconicButton
+              colorClassName="text-primary-blue"
               href="/"
               isLink={true}
-              icon={<FacebookFilled color="#183354" />}
+              icon={<FacebookFilled />}
             />
             <IconicButton
               href="/"
+              colorClassName="text-primary-blue"
               isLink={true}
-              icon={<TwitterOutlined color="#183354" />}
+              icon={<TwitterOutlined />}
             />
             <IconicButton
               href="/"
+              colorClassName="text-primary-blue"
               isLink={true}
-              icon={<InstagramOutlined color="#183354" />}
+              icon={<InstagramOutlined />}
             />
             <IconicButton
               href="/"
+              colorClassName="text-primary-blue"
               isLink={true}
-              icon={<LinkedinFilled color="#183354" />}
+              icon={<LinkedinFilled />}
             />
-            <IconicButton href="/" isLink={true} icon={<YoutubeFilled />} />
+            <IconicButton
+              href="/"
+              colorClassName="text-primary-blue"
+              isLink={true}
+              icon={<YoutubeFilled />}
+            />
           </div>
         </div>
-      </HamburgerMenu> */}
+      </HamburgerMenu>
     </header>
   );
 };

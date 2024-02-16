@@ -38,11 +38,7 @@ export const UI: React.FC<Props> = ({}) => {
                 key={i}
                 className="flex flex-col lg:w-2/12 items-center lg:items-start mt-4 text-center lg:text-start lg:mt-0"
               >
-                <Title
-                  text={path?.title}
-                  className="text-white mb-2"
-                  leftUnderline={true}
-                />
+                <Title text={path?.title} className="text-white mb-2" />
                 {path?.data?.map((data: LinkType, y: number) => (
                   <TextButton
                     key={`${i}_${y}`}

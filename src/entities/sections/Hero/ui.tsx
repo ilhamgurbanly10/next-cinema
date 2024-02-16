@@ -11,7 +11,7 @@ export const UI: React.FC<Props> = ({ className }) => {
   const { hero: data } = useRecoil();
 
   return (
-    <Container className="mt-14">
+    <Container className="mt-0">
       <div>
         {!data.loading && !data.error && (
           <Carousel

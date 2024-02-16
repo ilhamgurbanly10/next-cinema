@@ -94,13 +94,5 @@ export const paths: Parent[] = [
                 active: false,
             },
         ]
-    },
-    { 
-        isLink: true,
-        className: '',
-        label: 'contact',
-        href: "/",
-        disabled: false,
-        active: false,
-    } 
+    }
 ]
